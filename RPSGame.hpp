@@ -5,9 +5,9 @@ class RPSGame{
     public: 
 
 
-    
+
     private:
 
-}
+};
 
 #endif // RPSGAME_HPP
