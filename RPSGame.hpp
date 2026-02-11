@@ -3,20 +3,21 @@
 
 #include <string>
 
-class RPSGame{
+class RPSGame {
     private:
         std::string choiceToString(int choice);
-        int getUserChoice();
         int getComputerChoice();
-        std::string determineWinner(int user, int comp);
-        
-    public: 
-        RPSGame(); // Constructor
-        void PlayGame(int userChoice); // one round of RPS
+        int determineWinner(int user, int comp); // ✅ int now
+
+    public:
+        RPSGame();
         void WelcomeMessage() const;
+        void Menu() const;
         void EndGameMessage() const;
-        void Menu() const; // Display menu options
-    
+
+        int getUserChoice();       // implemented in .cpp
+        void PlayGame(int userChoice);
+        void PlayBestOfThree();
 };
 
-#endif // RPSGAME_HPP
+#endif
