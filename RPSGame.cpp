@@ -21,12 +21,13 @@ string RPSGame::choiceToString(int choice) {
 }
 
 int RPSGame::getComputerChoice() {
-    return std::rand() % 3; // 0: Rock, 1: Paper, 2: Scissors
+    return (std::rand() % 3) + 1; // 1: Rock, 2: Paper, 3: Scissors
 }
+
 
 void RPSGame::WelcomeMessage() const {
     cout << " Welcome to Rock-Paper-Scissors!" << endl;
-    cout << "----------------------------------" << endl;
+   
 }
 
 void RPSGame::EndGameMessage() const {
@@ -34,9 +35,29 @@ void RPSGame::EndGameMessage() const {
 }
 
 void RPSGame::Menu() const {
+    cout << "----------------------------------" << endl;
     cout<< "Pease make a choice: " << endl;
     cout<< "1. Rock" << endl;
     cout<< "2. Paper" << endl;
     cout<< "3. Scissors" << endl;
     cout<< "4. Exit" << endl;
+}
+
+ void RPSGame::PlayGame(int userChoice) {
+    int computerChoice = getComputerChoice();
+
+    cout << "You chose: " << choiceToString(userChoice) << endl;
+    cout << "Computer chose: " << choiceToString(computerChoice) << endl;
+
+    if (userChoice == computerChoice) {
+        cout << "Result: Tie!" << endl;
+    } else if ((userChoice == 1 && computerChoice == 3) ||
+               (userChoice == 2 && computerChoice == 1) ||
+               (userChoice == 3 && computerChoice == 2)) {
+        cout << "Result: You win!" << endl;
+    } else {
+        cout << "Result: Computer wins!" << endl;
+    }
+
+    cout << endl;
 }

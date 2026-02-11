@@ -1,7 +1,7 @@
 CXX	=	g++
 CXXFLAGS	=	-Wall	-std=c++17
 
-TARGET	=	RPSGame
+TARGET	=	rps
 
 OBJS=	Main.o	RPSGame.o
 

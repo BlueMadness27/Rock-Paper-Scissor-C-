@@ -1,4 +1,5 @@
 #include "RPSGame.hpp"
+#include <random>
 #include <iostream>
 using namespace std;
 
@@ -9,7 +10,9 @@ int main() {
     int userChoice;
     do {
         game.Menu();
+        cout<< "Enter your choice: ";
         cin >> userChoice;
+        cout << endl;
 
         if (userChoice >= 1 && userChoice <= 3) {
             game.Menu();

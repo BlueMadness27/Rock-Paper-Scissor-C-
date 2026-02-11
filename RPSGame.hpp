@@ -12,7 +12,7 @@ class RPSGame{
         
     public: 
         RPSGame(); // Constructor
-        void PlayGame(); // one round of RPS
+        void PlayGame(int userChoice); // one round of RPS
         void WelcomeMessage() const;
         void EndGameMessage() const;
         void Menu() const; // Display menu options
