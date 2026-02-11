@@ -24,4 +24,19 @@ int RPSGame::getComputerChoice() {
     return std::rand() % 3; // 0: Rock, 1: Paper, 2: Scissors
 }
 
-RPSGame::
+void RPSGame::WelcomeMessage() const {
+    cout << " Welcome to Rock-Paper-Scissors!" << endl;
+    cout << "----------------------------------" << endl;
+}
+
+void RPSGame::EndGameMessage() const {
+    cout << " Thanks for playing! Goodbye!" << endl;
+}
+
+void RPSGame::Menu() const {
+    cout<< "Pease make a choice: " << endl;
+    cout<< "1. Rock" << endl;
+    cout<< "2. Paper" << endl;
+    cout<< "3. Scissors" << endl;
+    cout<< "4. Exit" << endl;
+}
