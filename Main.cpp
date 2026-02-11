@@ -12,7 +12,7 @@ int main() {
         cin >> userChoice;
 
         if (userChoice >= 1 && userChoice <= 3) {
-            game.PlayGame();
+            game.Menu();
         } else if (userChoice == 4) {
             break; // Exit the loop to end the game
         } else {
