@@ -8,14 +8,14 @@ int main() {
 
     int userChoice;
 
-    do {
-        game.Menu();
+    while (true) {
+        game.ReadytoPlayMessage();
         cout << "Enter your choice: ";
         cin >> userChoice;
         cout << endl;
 
-        if (userChoice >= 1 && userChoice <= 3) {
-            game.PlayBestOfThree();   // Start 3-round match
+        if (userChoice == 1) {
+            game.PlayBestOfThree();   // Start match
         }
         else if (userChoice == 4) {
             break;
@@ -23,8 +23,7 @@ int main() {
         else {
             cout << "Invalid choice. Please try again.\n\n";
         }
-
-    } while (true);
+    }
 
     game.EndGameMessage();
     return 0;

@@ -40,7 +40,7 @@ int RPSGame::getUserChoice() {
 
     while (true) {
         Menu();
-        cout << "Enter your choice (1-3): ";
+        cout << "Enter your choice (1-3, or 4 to quit match): ";
         cin >> choice;
 
         if (cin.fail()) {
@@ -50,14 +50,15 @@ int RPSGame::getUserChoice() {
             continue;
         }
 
-        if (choice >= 1 && choice <= 3) {
+        if (choice >= 1 && choice <= 4) {
             cout << endl;
-            return choice;
+            return choice;   // can be 1..4 now
         }
 
-        cout << "Invalid choice. Please enter 1, 2, or 3.\n\n";
+        cout << "Invalid choice. Please enter 1, 2, 3, or 4.\n\n";
     }
 }
+
 
 
 void RPSGame::PlayBestOfThree() {
@@ -70,8 +71,16 @@ void RPSGame::PlayBestOfThree() {
     for (int round = 1; round <= 3; round++) {
         cout << "===== Round " << round << " =====\n";
 
-        int userChoice = getUserChoice();
+       int userChoice = getUserChoice();
+
+        if (userChoice == 4) {
+            cout << "You quit the match early.\n\n";
+            cout << "Returning to main menu...\n\n";
+            return; // exits PlayBestOfThree and goes back to main loop
+        }
+
         int computerChoice = getComputerChoice();
+
 
         cout << "You chose: " << choiceToString(userChoice) << endl;
         cout << "Computer chose: " << choiceToString(computerChoice) << endl;
@@ -91,18 +100,16 @@ void RPSGame::PlayBestOfThree() {
             cout << "Result: Tie round!\n";
         }
 
-        cout << "Score -> You: " << userScore
-             << " | Computer: " << computerScore
-             << " | Ties: " << ties << "\n\n";
+        cout << "Score -> You: " << userScore << " | Computer: " << computerScore  << " | Ties: " << ties << "\n\n";
     }
 
     cout << "===== Final Result =====\n";
     if (userScore > computerScore)
-        cout << "🎉 You are the winner!\n\n";
+        cout << "You are the winner!\n\n";
     else if (computerScore > userScore)
-        cout << "💻 Computer is the winner!\n\n";
+        cout << "Computer is the winner!\n\n";
     else
-        cout << "🤝 It's a tie overall!\n\n";
+        cout << "It's a tie overall!\n\n";
 }
 
 
@@ -131,7 +138,7 @@ void RPSGame::WelcomeMessage() const {
 }
 
 void RPSGame::EndGameMessage() const {
-    cout << " Thanks for playing! Goodbye!" << endl;
+    cout << " Goodbye!" << endl;
 }
 
 void RPSGame::Menu() const {
@@ -143,3 +150,9 @@ void RPSGame::Menu() const {
     cout<< "4. Exit" << endl;
 }
 
+void RPSGame::ReadytoPlayMessage() const {
+    cout << " Ready to play? " << endl;
+    cout << " Press 1 to start or 4 to exit." << endl;
+    cout << " Note: Best of 3 rounds will be played " << endl;
+    
+}

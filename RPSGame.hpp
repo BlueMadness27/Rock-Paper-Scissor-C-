@@ -12,6 +12,7 @@ class RPSGame {
     public:
         RPSGame();
         void WelcomeMessage() const;
+        void ReadytoPlayMessage() const;
         void Menu() const;
         void EndGameMessage() const;
 
